@@ -2,11 +2,15 @@ import { weatherData } from "./dataController.js";
 
 function showWeather(location){
     weatherData(location).then(data => {
+        let locationError = document.querySelector(`.error`)
     if(typeof data === 'string'){
-        let locationError = document.querySelector(`#location + span.error`)
+        console.log(locationError)
         locationError.textContent = data
-        locationError.className = 'error active'
+        locationError.classList.add('active')
+        locationError.classList.remove('hide')
     } else {
+        locationError.classList.remove('active')
+        locationError.classList.add('hide')
         let creditElements = document.querySelectorAll('.credit')
         creditElements.forEach(element => {
             element.classList.remove('creditShow')
@@ -87,7 +91,9 @@ function showWeather(location){
                 cloudyCredit.classList.add('creditShow')
                 break;
             default:
-                console.log("no image")
+                let mainCredit = document.querySelector('.main-credit')
+                container.style.backgroundImage = "url(./images/space.jpg)"
+                mainCredit.classList.add('creditShow')
         }
     }
     })

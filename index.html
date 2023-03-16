@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="script.js" type="module" defer></script>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
     <link rel="shortcut icon" href="#">
     <title>Weather App</title>
 </head>
@@ -18,12 +19,20 @@
         <div class="drizzle-credit credit">Photo by <a href="https://unsplash.com/@lorengu?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Loren Gu</a> on <a href="https://unsplash.com/photos/_bT-oNYP5Wk?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a></div>
         <div class="rain-credit credit">Photo by <a href="https://unsplash.com/es/@kevin_w_?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Kevin Wang</a> on <a href="https://unsplash.com/photos/bI423DxLEYk?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a></div>
         <div class="snow-credit credit">Photo by <a href="https://unsplash.com/@aaronburden?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Aaron Burden</a> on <a href="https://unsplash.com/photos/xr9DndkLeec?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a></div>
-        <form action="submit" class="inputForm">
-            <label for="location">Enter Location</label>
-            <input type="text" name="location" id="location">
-            <span class="error" aria-live="polite"></span>
-            <button type="submit">Submit</button>
-        </form>
+        <div class="main-credit credit">Photo by <a href="https://unsplash.com/@andyjh07?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Andy Holmes</a> on <a href="https://unsplash.com/wallpapers/nature/night-sky?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a></div>
+        <div class="displayContainer">
+            <div class="mainDisplay">
+                <h1 class="header">Project Weather <span class="sun">☼</span></h1>
+                <form action="submit" class="inputForm">
+                    <input type="text" name="location" id="location" required>
+                    <span class="label">Enter Location</span>
+                    <span class="error hide" aria-live="polite"></span>
+                    <button class="submit" type="submit"><span>Submit</span></button>
+                </form>
+            </div>
+            <div class="dataDisplay">
+            </div>
+        </div>
     </div>
     
 </body>

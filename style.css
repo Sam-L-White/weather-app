@@ -30,7 +30,7 @@ footer, header, hgroup, menu, nav, section {
 }
 body {
 	line-height: 1;
-    background-color: black;
+    background-color: rgb(0, 0, 0);
 }
 ol, ul {
 	list-style: none;
@@ -48,6 +48,10 @@ table {
 	border-spacing: 0;
 }
 
+html{
+    font-family: 'Roboto';
+}
+
 .container{
     height: 100%;
     width: 100%;
@@ -60,23 +64,149 @@ table {
     left:0px;
 }
 
+.displayContainer{
+    height: 40vh;
+    position: fixed;
+    display: grid;
+    grid-template-columns: repeat(16, 6vw);
+    top: 30%;
+    margin-left: 12vw;
+}
+
+.mainDisplay {
+    display: grid;
+    grid-column: 1 / 5;
+    background-color: rgb(255, 255, 255);
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+    backdrop-filter: blur(15px);
+    border-radius: 10px;
+}
+
+.dataDisplay{
+    grid-column: 5 / 14;
+    background-color: transparent;
+    backdrop-filter: blur(15px);
+    border: 2px solid white;
+    border-left: none;
+    border-radius: 10px;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+}
+
+.header{
+    color: rgb(0, 0, 0);
+    font-size: 48px;
+    align-self: center;
+    justify-self: center;
+    text-shadow: 2px 4px 3px rgba(0,0,0,0.3);
+}
+
+.sun{
+    color: rgb(199, 80, 0);
+    font-size: 60px;
+}
+
 form {
-    width: 30%;
-    height: 60%;
-    background-color: rgba(255, 255, 255, 0.514); 
+    display: grid;
+    grid-template-rows: 1fr 1fr;
+    grid-template-columns: 1fr;
+    position: relative;
+    top: 5%;
+
+}
+
+.label {
+    font-size: 22px;
+    left: 25%;
+    top: 6%;
+    color: grey;
+    position: absolute;
+    pointer-events: none;
+    transition: 0.5s;
+}
+
+#location{
+    background: transparent;
+    border: 2px solid black;
+    width: 50%;
+    height: 40%;
+    justify-self: center;
+    color: rgb(199, 80, 0);
+    font-size: 22px;
+}
+
+
+#location:-webkit-autofill,
+#location:-webkit-autofill:hover,
+#location:-webkit-autofill:focus,
+#location:-webkit-autofill:active {
+    transition: background-color 5000s ease-in-out 0s;
+}
+
+#location:focus{
+    background: transparent;
+    outline: none;
+}
+
+#location:valid ~ .label,
+#location:focus ~ .label{
+    background-color: rgb(255, 255, 255);
+    color:rgb(199, 80, 0);
+    transform: translate(165%,-105%);
+    border-right: 2px solid black;
+    border-left: 2px solid black;
+    padding: 3px;
+    font-size: 16px;
+}
+
+.submit{
+    font-size: 16px;
+    width: 50%;
+    height: 15%;
+    justify-self: center;
+    top: 35%;
+    position: absolute;
+    background-color: rgb(199, 80, 0);
+    color: white;
+    border: none;
+    border-radius: 15px;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+    transition-duration: 0.4s;
+    cursor: pointer;
+}
+
+.submit {
+    letter-spacing: 0;
+}
+
+.submit:hover,
+.submit:active {
+  letter-spacing: 2px;
+  background-color: rgb(46, 39, 39);
+  color: rgb(199, 80, 0);
+  font-size: 20px;
+  height: 17.5%;
 }
 
 .error {
     width: 100%;
     padding: 0;
-    font-size: 80%;
+    font-size: 16px;
     color: white;
     background-color: #900;
     border-radius: 0 0 5px 5px;
     box-sizing: border-box;
 }
 
-.error.active {
+.hide {
+    display: none;
+}
+
+.active {
+    position: absolute;
+    width: 50%;
+    height: 10%;
+    justify-self: center;
+    top: 22%;
     padding: 0.3em;
 }
 
@@ -92,5 +222,4 @@ form {
     padding: 10px;
     border-radius: 10px;
 }
-
   
