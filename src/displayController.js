@@ -1,22 +1,12 @@
 import { weatherData } from "./dataController.js";
 
-function showWeather(location){
-    weatherData(location).then(data => {
-        let locationError = document.querySelector(`.error`)
-    if(typeof data === 'string'){
-        console.log(locationError)
-        locationError.textContent = data
-        locationError.classList.add('active')
-        locationError.classList.remove('hide')
-    } else {
-        locationError.classList.remove('active')
-        locationError.classList.add('hide')
-        let creditElements = document.querySelectorAll('.credit')
+function backgroundControl(weatherId){
+    let creditElements = document.querySelectorAll('.credit')
         creditElements.forEach(element => {
             element.classList.remove('creditShow')
         })
         let container = document.querySelector('.container')
-        switch(data.weather[0].id){
+        switch(weatherId){
             case 200:
             case 201:
             case 202:
@@ -95,6 +85,26 @@ function showWeather(location){
                 container.style.backgroundImage = "url(./images/space.jpg)"
                 mainCredit.classList.add('creditShow')
         }
+}
+
+function weatherControl(weather, wind, main){
+    let dataDisplayContainer = document.querySelector('.dataDisplay')
+    dataDisplayContainer.classList.remove('hide')
+}
+
+function showWeather(location){
+    weatherData(location).then(data => {
+        let locationError = document.querySelector(`.error`)
+    if(typeof data === 'string'){
+        console.log(locationError)
+        locationError.textContent = data
+        locationError.classList.add('active')
+        locationError.classList.remove('hide')
+    } else {
+        locationError.classList.remove('active')
+        locationError.classList.add('hide')
+        backgroundControl(data.weather[0].id)
+        weatherControl(data.weather[0], data.wind, data.main)
     }
     })
 }
