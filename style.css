@@ -62,6 +62,7 @@ html{
     height:100%;
     top:0px;
     left:0px;
+    transition: background-image 3s;
 }
 
 .displayContainer{
@@ -70,7 +71,7 @@ html{
     display: grid;
     grid-template-columns: repeat(16, 6vw);
     top: 30%;
-    margin-left: 7.5vw;
+    margin-left: 5vw;
     gap: 0.5vw;
 }
 
@@ -84,48 +85,54 @@ html{
 }
 
 .dataDisplay{
-    grid-column: 5 / 14;
+    grid-column: 5 / 15;
     display: grid;
     grid-template-columns: repeat(7, 1fr);
     grid-template-rows: repeat(5, 1fr);
-    background-color: transparent;
-    backdrop-filter: blur(15px);
-    border: 2px solid white;
-    border-left: none;
+    background-color: rgba(0, 0, 0, 0.664);
+    backdrop-filter: blur(20px);
     border-radius: 10px;
+    border: none;
     box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
     gap: 1vw;
+    opacity: 100;
+    transition: opacity 1s;
 }
 
 .backArrow{
-    font-size: 48px;
-    grid-column: 1 / 2;
-    grid-row: 1 / 2;
-    align-self: center;
-    justify-self: start;
-}
-
-.forwardArrow{
-    font-size: 48px;
-    grid-column: 7 / 8;
+    font-size: 80px;
+    grid-column: 2 / 3;
     grid-row: 1 / 2;
     align-self: center;
     justify-self: end;
+    color: white;
+}
+
+.forwardArrow{
+    font-size: 80px;
+    grid-column: 6 / 7;
+    grid-row: 1 / 2;
+    align-self: center;
+    justify-self: start;
+    color: white;
 }
 
 .locationTitle{
     font-size: 48px;
-    grid-column: 2 / 7;
-    grid-row: 1 / 2;
+    grid-column: 3 / 6;
+    grid-row: 2 / 3;
     align-self: center;
     justify-self: center;
+    color: white;
 }
 
 .dayTitle{
     font-size: 36px;
     grid-column: 2 / 7;
-    grid-row: 2 / 3;
+    grid-row: 1 / 2;
     justify-self: center;
+    align-self: center;
+    color: white;
 }
 
 .weatherTitle{
@@ -133,24 +140,31 @@ html{
     grid-column: 2 / 7;
     grid-row: 3 / 4;
     justify-self: center;
+    color: white;
 }
 
 .data{
     display: grid;
     grid-template-rows: 1fr 5fr 1fr;
     gap: 1vh;
+    border-left: 2px solid white;
+    border-right: 2px solid white;
+    border-radius: 25px;
+    background-color: rgba(255, 255, 255, 0.082);
+    color: white;
 }
 
 .data h3{
     grid-row: 1 / 2;
-    align-self: center;
     justify-self: center;
     font-size: 24px;
+    color: white;
 }
 
 .data p{
     grid-row: 2 / 4;
     justify-self: center;
+    align-self: center;
     font-size: 80px;
 }
 
@@ -209,11 +223,11 @@ form {
 .label {
     font-size: 22px;
     left: 25%;
-    top: 6%;
+    top: 8%;
     color: grey;
     position: absolute;
     pointer-events: none;
-    transition: 0.5s;
+    transition: 0.45s;
 }
 
 #location{
@@ -243,7 +257,7 @@ form {
 #location:focus ~ .label{
     background-color: rgb(255, 255, 255);
     color:rgb(199, 80, 0);
-    transform: translate(165%,-105%);
+    transform: translate(165%,-160%);
     border-right: 2px solid black;
     border-left: 2px solid black;
     padding: 3px;
@@ -290,7 +304,7 @@ form {
 }
 
 .hide {
-    display: none;
+    opacity: 0;
 }
 
 .active {
@@ -313,5 +327,7 @@ form {
     box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
     padding: 10px;
     border-radius: 10px;
+    opacity: 100;
+    transition: opacity 1s;
 }
   

@@ -83,12 +83,29 @@ function backgroundControl(weatherId){
             default:
                 let mainCredit = document.querySelector('.main-credit')
                 container.style.backgroundImage = "url(./images/space.jpg)"
+                container.classList.add('backgroundShow')
                 mainCredit.classList.add('creditShow')
         }
 }
 
+function strToUpperCase(string){
+    return string.toLowerCase().split(' ').map(word => word.charAt(0).toUpperCase() + word.substring(1)).join(' ');
+}
+
 function weatherControl(weather, wind, main){
     let dataDisplayContainer = document.querySelector('.dataDisplay')
+    let weatherDisplay = document.querySelector('.weatherTitle')
+    weatherDisplay.textContent = strToUpperCase(weather['description'])
+    let pressureDisplay = document.querySelector('#pressureData p')
+    pressureDisplay.textContent = `${main['pressure']}hPa`;
+    let humidityDisplay = document.querySelector('#humidityData p')
+    humidityDisplay.textContent = `${main['humidity']}%`;
+    let tempDisplay = document.querySelector('#tempData p')
+    tempDisplay.textContent = `${main['temp']}°C`;
+    let feelsLikeDisplay = document.querySelector('#feelsLikeData p')
+    feelsLikeDisplay.textContent = `${main['feels_like']}°C`;
+    let windDisplay = document.querySelector('#windData p')
+    windDisplay.textContent = `${wind['speed']}m/s`
     dataDisplayContainer.classList.remove('hide')
 }
 
@@ -103,6 +120,8 @@ function showWeather(location){
     } else {
         locationError.classList.remove('active')
         locationError.classList.add('hide')
+        let locationTitle = document.querySelector('.locationTitle')
+        locationTitle.textContent = location
         backgroundControl(data.weather[0].id)
         weatherControl(data.weather[0], data.wind, data.main)
     }
